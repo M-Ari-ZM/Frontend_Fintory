@@ -2,7 +2,7 @@
   "name": "fintory",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://m-ari-zm.github.io/Fintory/",
+  "homepage": "https://m-ari-zm.github.io/Fintory",
   "type": "module",
   "scripts": {
     "dev": "vite",
