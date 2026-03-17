@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import bgHeader from "../assets/img/bg-header.png";
 
 export default function Hero() {
   const navigate = useNavigate();
 
-  function handleLogin() {
+  function dashboardBtn() {
     navigate("/dashboard");
   }
 
@@ -19,7 +20,7 @@ export default function Hero() {
 
         <button
           className="bg-gray-200 text-gray-800 text-2xl mt-15 px-8 py-2 rounded-full font-semibold hover:bg-gray-300 transition self-end"
-          onClick={handleLogin}
+          onClick={dashboardBtn}
         >
           Mulai
         </button>
@@ -27,7 +28,7 @@ export default function Hero() {
 
       {/* Background Image */}
       <img
-        src="src\assets\img\bg-header.png"
+        src={bgHeader}
         alt="finance"
         className="w-full max-h-screen object-cover -mt-50"
       />
