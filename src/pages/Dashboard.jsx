@@ -77,7 +77,7 @@ export default function Dashboard() {
   const balance = income - expense;
 
   // DATA UNTUK CHART
-  const expenseData = filteredTransactions
+  const expenseDataRaw = filteredTransactions
     .filter((t) => t.type === "expense")
     .reduce((acc, curr) => {
       const existing = acc.find((i) => i.name === curr.desc);
@@ -90,6 +90,19 @@ export default function Dashboard() {
 
       return acc;
     }, []);
+
+  const sortedExpenses = expenseDataRaw.sort((a, b) => b.value - a.value);
+  const topFiveExpenses = sortedExpenses.slice(0, 5);
+  const others = sortedExpenses.slice(5);
+
+  if (others.length > 0) {
+    const totalOthers = others.reduce((a, b) => a + b.value, 0);
+
+    topFiveExpenses.push({
+      name: "Lainnya",
+      value: totalOthers,
+    });
+  }
 
   return (
     <div>
@@ -138,7 +151,7 @@ export default function Dashboard() {
             <h2 className="font-bold mb-4">Rincian Pengeluaran</h2>
 
             <div className="justify-self-center">
-              <ExpenseChart data={expenseData} />
+              <ExpenseChart data={topFiveExpenses} />
             </div>
           </div>
 

@@ -19,6 +19,8 @@ export default function ActivityList({ transactions }) {
             >
               Rp {t.amount}
             </span>
+
+            <span>{t.date}</span>
           </div>
         ))}
     </div>
