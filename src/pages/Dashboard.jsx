@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 import TransactionModal from "../components/TransactionModal";
 import DashboardCards from "../components/DashboardCards";
 import ActivityList from "../components/ActivityList";
@@ -91,62 +92,67 @@ export default function Dashboard() {
     }, []);
 
   return (
-    <div className="p-8 space-y-6">
-      {/* HEADER */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-gray-500">Pantau keuangan anda</p>
-        </div>
+    <div>
+      <Navbar />
+      <div className="p-8 space-y-6">
+        {/* HEADER */}
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold">Dashboard</h1>
+            <p className="text-gray-500">Pantau keuangan anda</p>
+          </div>
 
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-blue-200 px-5 py-3 rounded-xl hover:scale-105 transition"
-        >
-          + Tambah Transaksi
-        </button>
-      </div>
-
-      {/* FILTER */}
-      <div className="flex gap-2 bg-gray-200 p-1 rounded-lg w-fit">
-        {["day", "week", "month", "year"].map((f) => (
           <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={`px-3 py-1 rounded ${
-              filter === f ? "bg-white shadow" : ""
-            }`}
+            onClick={() => setShowModal(true)}
+            className="bg-blue-200 px-5 py-3 rounded-xl hover:scale-105 transition"
           >
-            {f === "day" && "Hari"}
-            {f === "week" && "Minggu"}
-            {f === "month" && "Bulan"}
-            {f === "year" && "Tahun"}
+            + Tambah Transaksi
           </button>
-        ))}
-      </div>
-
-      {/* CARDS */}
-      <DashboardCards income={income} expense={expense} balance={balance} />
-
-      {/* CONTENT */}
-      <div className="grid grid-cols-2 gap-6">
-        {/* CHART */}
-        <div className="border p-4 rounded-xl">
-          <h2 className="font-bold mb-4">Rincian Pengeluaran</h2>
-
-          <ExpenseChart data={expenseData} />
         </div>
 
-        {/* AKTIVITAS */}
-        <ActivityList transactions={filteredTransactions} />
-      </div>
+        {/* FILTER */}
+        <div className="flex gap-2 bg-gray-200 p-1 rounded-lg w-fit">
+          {["day", "week", "month", "year"].map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`px-3 py-1 rounded ${
+                filter === f ? "bg-white shadow" : ""
+              }`}
+            >
+              {f === "day" && "Hari"}
+              {f === "week" && "Minggu"}
+              {f === "month" && "Bulan"}
+              {f === "year" && "Tahun"}
+            </button>
+          ))}
+        </div>
 
-      {/* MODAL */}
-      <TransactionModal
-        open={showModal}
-        onClose={() => setShowModal(false)}
-        onSubmit={addTransaction}
-      />
+        {/* CARDS */}
+        <DashboardCards income={income} expense={expense} balance={balance} />
+
+        {/* CONTENT */}
+        <div className="grid sm:grid-cols-2 gap-6">
+          {/* CHART */}
+          <div className="border p-4 rounded-xl">
+            <h2 className="font-bold mb-4">Rincian Pengeluaran</h2>
+
+            <div className="justify-self-center">
+              <ExpenseChart data={expenseData} />
+            </div>
+          </div>
+
+          {/* AKTIVITAS */}
+          <ActivityList transactions={filteredTransactions} />
+        </div>
+
+        {/* MODAL */}
+        <TransactionModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          onSubmit={addTransaction}
+        />
+      </div>
     </div>
   );
 }

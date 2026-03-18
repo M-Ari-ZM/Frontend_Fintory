@@ -10,6 +10,10 @@ export default function Hero() {
 
   return (
     <section className="relative">
+      <header className="bg-main text-white px-6 py-4">
+        <h1 className="text-2xl font-semibold">Fintory</h1>
+      </header>
+
       {/* Card */}
       <div className="bg-second text-white text-center pt-20 pb-10 px-6 rounded-b-[40px] shadow-lg relative z-10">
         <h2 className="text-3xl font-bold mb-5">Selamat Datang di Fintory</h2>

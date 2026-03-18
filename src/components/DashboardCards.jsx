@@ -1,13 +1,8 @@
-export default function DashboardCards({ income, expense, balance }) {
-  function formatRupiah(num) {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(num);
-  }
+import formatRupiah from "../utils/formatRupiah";
 
+export default function DashboardCards({ income, expense, balance }) {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid sm:grid-cols-3 gap-4">
       <div className="border border-green-400 p-4 rounded-xl">
         <p>Total Pemasukan</p>
         <h2 className="text-xl font-bold">{formatRupiah(income)}</h2>
