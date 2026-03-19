@@ -54,7 +54,7 @@ export default function ExpenseChart({ data }) {
         />
       </PieChart>
 
-      <div className="grid sm:grid-cols-2 sm:gap-x-20 mt-4 w-75 space-y-2">
+      <div className="grid grid-cols-3 gap-x-10 mt-4 w-full space-y-2">
         {data.map((item, index) => (
           <div key={index} className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -65,10 +65,6 @@ export default function ExpenseChart({ data }) {
 
               <span className="text-sm">{item.name}</span>
             </div>
-
-            <span className="text-sm font-semibold">
-              {((item.value / total) * 100).toFixed(1)}%
-            </span>
           </div>
         ))}
       </div>
