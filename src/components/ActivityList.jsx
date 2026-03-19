@@ -16,29 +16,30 @@ export default function ActivityList({ transactions, onDelete, onEdit }) {
             key={t.id}
             className={
               t.type === "income"
-                ? "flex border border-gray-300 bg-green-50 my-3 justify-between rounded-md p-4"
-                : "flex border border-gray-300 bg-red-50 my-3 justify-between rounded-md p-4"
+                ? "sm:flex border border-gray-300 bg-green-50 my-3 justify-between rounded-md p-4"
+                : "sm:flex border border-gray-300 bg-red-50 my-3 justify-between rounded-md p-4"
             }
           >
-            <div>
-              <p className="text-lg">{t.desc}</p>
-              <p className="text-xs text-gray-500">{formatDate(t.date)}</p>
+            <div className="flex justify-between sm:justify-between w-full  sm:mr-4 sm:pr-3 sm:border-r-2 sm:border-gray-300">
+              <div>
+                <p className="text-lg">{t.desc}</p>
+                <p className="text-xs text-gray-500">{formatDate(t.date)}</p>
+              </div>
+              <span
+                className={
+                  t.type === "income"
+                    ? "text-green-600 text-lg sm:text-2xl font-bold"
+                    : "text-red-600 text-lg sm:text-2xl font-bold"
+                }
+              >
+                {formatRupiah(t.amount)}
+              </span>
             </div>
 
-            <span
-              className={
-                t.type === "income"
-                  ? "text-green-600 sm:text-2xl font-bold"
-                  : "text-red-600 sm:text-2xl font-bold"
-              }
-            >
-              {formatRupiah(t.amount)}
-            </span>
-
-            <div className="flex gap-2">
+            <div className="flex gap-2 justify-end">
               <button
                 onClick={() => onEdit(t)}
-                className="text-blue-500 bg-blue-200 w-18 rounded-md"
+                className="text-blue-500 bg-blue-200 w-18 h-11 rounded-md"
               >
                 Edit
               </button>
@@ -49,7 +50,7 @@ export default function ActivityList({ transactions, onDelete, onEdit }) {
                     onDelete(t.id);
                   }
                 }}
-                className="text-red-500 bg-red-200 w-18 rounded-md"
+                className="text-red-500 bg-red-200 w-18 h-11 rounded-md"
               >
                 Hapus
               </button>
