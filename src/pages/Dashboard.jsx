@@ -105,7 +105,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="bg-gray-50">
       <Navbar />
       <div className="p-8 space-y-6">
         {/* HEADER */}
@@ -124,12 +124,12 @@ export default function Dashboard() {
         </div>
 
         {/* FILTER */}
-        <div className="flex justify-self-end gap-2 bg-gray-200 p-1 rounded-lg w-fit">
+        <div className="flex justify-self-center sm:justify-self-end gap-2 bg-gray-200 p-1 rounded-lg w-fit">
           {["day", "week", "month", "year"].map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-3 py-1 rounded ${
+              className={`px-3 py-1 rounded  ${
                 filter === f ? "bg-white shadow" : ""
               }`}
             >
@@ -147,7 +147,7 @@ export default function Dashboard() {
         {/* CONTENT */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* CHART */}
-          <div className="border p-4 rounded-xl">
+          <div className="bg-white border border-gray-300 p-4 rounded-xl hover:shadow-md hover:-translate-y-1 transition">
             <h2 className="font-bold mb-4">Rincian Pengeluaran</h2>
 
             <div className="justify-self-center">

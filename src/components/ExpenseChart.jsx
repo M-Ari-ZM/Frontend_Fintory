@@ -2,12 +2,12 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 export default function ExpenseChart({ data }) {
   const COLORS = [
-    "#ef4444",
-    "#f97316",
-    "#facc15",
-    "#22c55e",
-    "#3b82f6",
-    "#a855f7",
+    "#0b4695",
+    "#0f5fc9",
+    "#317bdf",
+    "#639be5",
+    "#95baea",
+    "#ccdcf0",
   ];
 
   if (data.length === 0) {
@@ -18,7 +18,7 @@ export default function ExpenseChart({ data }) {
 
   return (
     <div className="flex flex-col items-center">
-      <PieChart width={300} height={250}>
+      <PieChart width={250} height={250}>
         <Pie
           data={data}
           dataKey="value"

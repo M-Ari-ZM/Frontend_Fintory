@@ -10,7 +10,7 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      <header className="bg-main text-white px-6 py-4">
+      <header className="bg-main text-white px-6 py-4 relative z-10">
         <h1 className="text-2xl font-semibold">Fintory</h1>
       </header>
 
@@ -23,7 +23,7 @@ export default function Hero() {
         </h2>
 
         <button
-          className="bg-gray-200 text-gray-800 text-2xl mt-15 px-8 py-2 rounded-full font-semibold hover:bg-gray-300 transition self-end"
+          className="bg-gray-200 text-gray-800 text-2xl mt-15 px-15 py-2 rounded-full font-semibold hover:bg-gray-300 transition self-end"
           onClick={dashboardBtn}
         >
           Mulai
@@ -34,7 +34,7 @@ export default function Hero() {
       <img
         src={bgHeader}
         alt="finance"
-        className="w-full max-h-screen object-cover -mt-50"
+        className="min-w-screen min-h-screen object-cover -mt-100"
       />
     </section>
   );
