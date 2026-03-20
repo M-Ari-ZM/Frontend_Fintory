@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import bgHeader from "../assets/img/bg-header.webp";
+import Fintory from "../../public/Fintory(W).png";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      <header className="bg-main text-white px-6 py-4 relative z-10">
+      <header className="flex items-center gap-1 bg-main text-white px-6 py-4 relative z-10">
+        <img src={Fintory} alt="Fintory" className="w-6 h-full" />
         <h1 className="text-2xl font-semibold">Fintory</h1>
       </header>
 

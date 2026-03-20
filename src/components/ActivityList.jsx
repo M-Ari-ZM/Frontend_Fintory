@@ -42,7 +42,7 @@ export default function ActivityList({ transactions, onDelete, onEdit }) {
             <div className="flex gap-2 justify-end mt-2 sm:mt-0">
               <button
                 onClick={() => onEdit(t)}
-                className="text-blue-500 justify-items-center bg-blue-200 w-11 h-11 rounded-md"
+                className="text-blue-500 justify-items-center bg-blue-200 w-11 h-11 rounded-md cursor-pointer"
               >
                 <Pencil />
               </button>
@@ -53,7 +53,7 @@ export default function ActivityList({ transactions, onDelete, onEdit }) {
                     onDelete(t.id);
                   }
                 }}
-                className="text-red-500 justify-items-center bg-red-200 w-11 h-11 rounded-md"
+                className="text-red-500 justify-items-center bg-red-200 w-11 h-11 rounded-md cursor-pointer"
               >
                 <Trash />
               </button>

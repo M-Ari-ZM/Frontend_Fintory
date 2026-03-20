@@ -47,7 +47,7 @@ export default function Dashboard() {
             onClick={() => {
               (setShowModal(true), setEditData(null));
             }}
-            className="flex items-center gap-2 bg-blue-200 mt-5 w-full py-3 rounded-xl hover:scale-105 transition sm:mt-0 sm:w-fit sm:px-5"
+            className="flex items-center gap-2 bg-blue-200 mt-5 w-full py-3 px-5 rounded-xl hover:scale-105 transition sm:mt-0 sm:w-fit cursor-pointer"
           >
             <BadgePlus color="#000000" /> Tambah Transaksi
           </button>
