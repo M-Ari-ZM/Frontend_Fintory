@@ -6,7 +6,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   function dashboardBtn() {
-    navigate("/dashboard");
+    navigate("/home");
   }
 
   return (
