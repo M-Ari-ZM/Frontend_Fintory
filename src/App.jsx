@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import WelcomePage from "./pages/Welcome";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+import Spinner from "./components/ui/Spinner";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Route
         path="/home"
         element={
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<Spinner />}>
             <Dashboard />
           </Suspense>
         }
