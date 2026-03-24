@@ -7,8 +7,7 @@ import {
   ArrowUpWideNarrow,
   RotateCcw,
 } from "lucide-react";
-import formatDate from "../utils/formatDate";
-import formatRupiah from "../utils/formatRupiah";
+import List from "./ui/List";
 
 export default function TransactionList({ transactions, onDelete, onEdit }) {
   const [search, setSearch] = useState("");
@@ -119,56 +118,20 @@ export default function TransactionList({ transactions, onDelete, onEdit }) {
       </div>
 
       <div className="max-h-113 space-y-3 overflow-y-scroll">
-        {filtered.length === 0 && (
+        {filtered.length === 0 ? (
           <p className="text-center">Belum ada transaksi</p>
+        ) : (
+          filtered
+            .reverse()
+            .map((t) => (
+              <List
+                key={t.id}
+                transaction={t}
+                onDelete={onDelete}
+                onEdit={onEdit}
+              />
+            ))
         )}
-
-        {filtered.reverse().map((t) => (
-          <div
-            key={t.id}
-            className={
-              t.type === "income"
-                ? "sm:flex border border-gray-300 bg-green-50 my-3 justify-between rounded-md p-4"
-                : "sm:flex border border-gray-300 bg-red-50 my-3 justify-between rounded-md p-4"
-            }
-          >
-            <div className="flex justify-between sm:justify-between w-full  sm:mr-4 sm:pr-3 sm:border-r-2 sm:border-gray-300">
-              <div>
-                <p className="text-lg">{t.desc}</p>
-                <p className="text-xs text-gray-500">{formatDate(t.date)}</p>
-              </div>
-              <span
-                className={
-                  t.type === "income"
-                    ? "text-green-600 text-lg sm:text-2xl font-bold"
-                    : "text-red-600 text-lg sm:text-2xl font-bold"
-                }
-              >
-                {formatRupiah(t.amount)}
-              </span>
-            </div>
-
-            <div className="flex gap-2 justify-end mt-2 sm:mt-0">
-              <button
-                onClick={() => onEdit(t)}
-                className="text-blue-500 justify-items-center bg-blue-200 w-11 h-11 rounded-md cursor-pointer"
-              >
-                <Pencil />
-              </button>
-
-              <button
-                onClick={() => {
-                  if (confirm("Yakin ingin menghapus?")) {
-                    onDelete(t.id);
-                  }
-                }}
-                className="text-red-500 justify-items-center bg-red-200 w-11 h-11 rounded-md cursor-pointer"
-              >
-                <Trash />
-              </button>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
