@@ -9,7 +9,9 @@ import {
 } from "recharts";
 
 export default function MonthlyChart({ data }) {
-  if (!data.length) return <p className="text-center">Tidak ada data</p>;
+  const isEmpty = data.every((item) => item.income === 0 && item.expense === 0);
+
+  if (isEmpty) return <p className="text-center">Tidak ada data</p>;
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -22,8 +24,8 @@ export default function MonthlyChart({ data }) {
 
         <Legend />
 
-        <Bar dataKey="income" fill="#6366f1" name="Pemasukan" />
-        <Bar dataKey="expense" fill="#f97316" name="Pengeluaran" />
+        <Bar dataKey="income" fill="#0b4695" name="Pemasukan" />
+        <Bar dataKey="expense" fill="#95baea" name="Pengeluaran" />
       </BarChart>
     </ResponsiveContainer>
   );

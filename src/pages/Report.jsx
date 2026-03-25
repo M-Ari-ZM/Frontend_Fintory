@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BadgePlus } from "lucide-react";
 import Navbar from "../components/Navbar";
 import DashboardCards from "../components/DashboardCards";
 import MonthlyChart from "../components/MonthlyChart";
@@ -22,7 +21,7 @@ export default function Dashboard() {
   const expenseData = generateExpenseChartData(filteredTransactions);
 
   return (
-    <div className="bg-gray-50 overflow-x-hidden">
+    <div className="bg-gray-50">
       <Navbar />
       <div className="p-8 space-y-6">
         {/* HEADER */}
@@ -83,16 +82,31 @@ export default function Dashboard() {
         </div>
 
         <div className="bg-white border border-gray-300 p-4 rounded-xl hover:shadow-md hover:-translate-y-1 transition">
-          <h2 className="font-bold">Pemasukan & Pengeluaran Bulanan</h2>
-          <p className="text-gray-500 text-sm mb-4">
-            Perbandingan pemasukan dan pengeluaran per bulan
-          </p>
-
           {/* CHART */}
           {chartType === "bar" ? (
-            <MonthlyChart data={monthlyData} />
+            <div>
+              <h2 className="font-bold">Pemasukan & Pengeluaran Bulanan</h2>
+              <p className="text-gray-500 text-sm mb-4">
+                Perbandingan pemasukan dan pengeluaran per bulan
+              </p>
+
+              <MonthlyChart data={monthlyData} />
+            </div>
           ) : (
-            <ExpenseChart data={expenseData} />
+            <div>
+              <h2 className="font-bold">Pengeluaran Berdasarkan Deskripsi</h2>
+              <p className="text-gray-500 text-sm mb-4">
+                Distribusi pengeluaran Anda berdasarkan jenis transaksi
+              </p>
+
+              <div className="justify-items-center">
+                <ExpenseChart
+                  data={expenseData}
+                  pieChartStyle={`sm:flex gap-10 items-center`}
+                  legendChartStyle={`grid gap-y-5 mt-4 sm:mt-0 place-items-center`}
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>

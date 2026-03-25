@@ -87,7 +87,11 @@ export default function Dashboard() {
             <h2 className="font-bold mb-4">Rincian Pengeluaran</h2>
 
             <div className="justify-self-center">
-              <ExpenseChart data={chartData} />
+              <ExpenseChart
+                data={chartData}
+                radiusNumber={50}
+                legendChartStyle={`grid grid-cols-3 gap-x-5 mt-4 w-full space-y-2`}
+              />
             </div>
           </div>
 

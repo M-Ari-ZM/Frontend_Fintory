@@ -1,7 +1,15 @@
+import { useLocation } from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip, LabelList } from "recharts";
 import formatRupiah from "../utils/formatRupiah";
 
-export default function ExpenseChart({ data }) {
+export default function ExpenseChart({
+  data,
+  pieChartStyle,
+  legendChartStyle,
+  radiusNumber,
+}) {
+  const location = useLocation();
+
   const COLORS = [
     "#0b4695",
     "#0f5fc9",
@@ -18,13 +26,13 @@ export default function ExpenseChart({ data }) {
   const total = data.reduce((a, b) => a + b.value, 0);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className={`${pieChartStyle}`}>
       <PieChart width={240} height={270}>
         <Pie
           data={data}
           dataKey="value"
           nameKey="name"
-          innerRadius={50}
+          innerRadius={radiusNumber}
           outerRadius={110}
         >
           <LabelList
@@ -53,7 +61,7 @@ export default function ExpenseChart({ data }) {
         />
       </PieChart>
 
-      <div className="grid grid-cols-3 gap-x-5 mt-4 w-full space-y-2">
+      <div className={`${legendChartStyle}`}>
         {data.map((item, index) => (
           <div key={index} className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -62,7 +70,15 @@ export default function ExpenseChart({ data }) {
                 style={{ backgroundColor: COLORS[index % COLORS.length] }}
               />
 
-              <span className="text-sm">{item.name}</span>
+              {(location.pathname === "/home" && (
+                <span className="text-sm">{item.name}</span>
+              )) ||
+                (location.pathname === "/report" && (
+                  <div className="flex text-sm w-53 justify-between">
+                    <span>{item.name}</span>
+                    <span>{formatRupiah(item.value)}</span>
+                  </div>
+                ))}
             </div>
           </div>
         ))}
