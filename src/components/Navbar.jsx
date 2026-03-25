@@ -5,7 +5,7 @@ export default function Navbar() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Use 'auto' for instant scrolling
+      behavior: "smooth",
     });
   };
 

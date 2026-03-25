@@ -73,7 +73,7 @@ export default function TransactionModal({
               className={
                 type === "income"
                   ? "text-black bg-white w-full shadow py-1 rounded-md transition"
-                  : "w-full transition"
+                  : "w-full"
               }
             >
               Pemasukan
@@ -85,7 +85,7 @@ export default function TransactionModal({
               className={
                 type === "expense"
                   ? "text-black bg-white w-full shadow py-1 rounded-md transition"
-                  : "w-full transition"
+                  : "w-full"
               }
             >
               Pengeluaran

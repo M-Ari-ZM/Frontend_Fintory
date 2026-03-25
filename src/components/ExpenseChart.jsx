@@ -12,7 +12,7 @@ export default function ExpenseChart({ data }) {
   ];
 
   if (data.length === 0) {
-    return <p>Tidak ada data</p>;
+    return <p className="text-center">Tidak ada data</p>;
   }
 
   const total = data.reduce((a, b) => a + b.value, 0);

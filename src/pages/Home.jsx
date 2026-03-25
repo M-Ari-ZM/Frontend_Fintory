@@ -11,6 +11,7 @@ import useTransactions from "../hooks/useTransactions";
 import { filterTransactions } from "../utils/filterTransactions";
 import { calculateSummary } from "../utils/calculateSummary";
 import { generateExpenseChartData } from "../utils/expenseChart";
+import { cardsDataHome } from "../utils/cardsData";
 
 export default function Dashboard() {
   const [editData, setEditData] = useState(null);
@@ -40,7 +41,7 @@ export default function Dashboard() {
         <div className="sm:flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold">Dashboard</h1>
-            <p className="text-gray-500">Pantau keuangan anda</p>
+            <p className="text-gray-500">Pantau kesehatan keuangan Anda.</p>
           </div>
 
           <button
@@ -60,7 +61,7 @@ export default function Dashboard() {
               key={f}
               onClick={() => setFilter(f)}
               className={`px-3 py-1 rounded ${
-                filter === f ? "bg-white shadow transition" : ""
+                filter === f ? "bg-white shadow transition" : "text-gray-500"
               }`}
             >
               {f === "day" && "Hari"}
@@ -72,7 +73,12 @@ export default function Dashboard() {
         </div>
 
         {/* CARDS */}
-        <DashboardCards income={income} expense={expense} balance={balance} />
+        <DashboardCards
+          income={income}
+          expense={expense}
+          balance={balance}
+          cardsData={cardsDataHome}
+        />
 
         {/* CONTENT */}
         <div className="grid md:grid-cols-2 gap-6">
@@ -85,7 +91,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* AKTIVITAS */}
+          {/* ACTIVITY */}
           <ActivityList
             transactions={filteredTransactions}
             onDelete={deleteTransaction}

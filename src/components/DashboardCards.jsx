@@ -1,8 +1,12 @@
 import formatRupiah from "../utils/formatRupiah";
 import Card from "./ui/Card";
-import { cardsData } from "../utils/cardsData";
 
-export default function DashboardCards({ income, expense, balance }) {
+export default function DashboardCards({
+  income,
+  expense,
+  balance,
+  cardsData,
+}) {
   const dataMap = {
     income,
     expense,
