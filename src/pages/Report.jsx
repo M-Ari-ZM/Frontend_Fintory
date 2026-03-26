@@ -1,24 +1,27 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import DashboardCards from "../components/DashboardCards";
+import FilterByTimeSelect from "../components/ui/FilterByTimeSelect";
 import MonthlyChart from "../components/MonthlyChart";
 import ExpenseChart from "../components/ExpenseChart";
 import Footer from "../components/Footer";
 import useTransactions from "../hooks/useTransactions";
-import { filterTransactions } from "../utils/filterTransactions";
+import { filterByTime } from "../utils/filterByTime";
 import { calculateSummary } from "../utils/calculateSummary";
 import { generateExpenseChartData } from "../utils/expenseChart";
 import { generateMonthlyChartData } from "../utils/monthlyChart";
 import { cardsDataReport } from "../utils/cardsData";
 
 export default function Dashboard() {
-  const [filter, setFilter] = useState("month");
+  const [timeFilter, setTimeFilter] = useState("all");
   const [chartType, setChartType] = useState("bar");
   const { transactions } = useTransactions();
-  const filteredTransactions = filterTransactions(transactions, filter);
-  const { income, expense, balance } = calculateSummary(filteredTransactions);
-  const monthlyData = generateMonthlyChartData(filteredTransactions);
-  const expenseData = generateExpenseChartData(filteredTransactions);
+  const filteredTransactionsByTime = filterByTime(transactions, timeFilter);
+  const { income, expense, balance } = calculateSummary(
+    filteredTransactionsByTime,
+  );
+  const monthlyData = generateMonthlyChartData(filteredTransactionsByTime);
+  const expenseData = generateExpenseChartData(filteredTransactionsByTime);
 
   return (
     <div className="bg-gray-50">
@@ -31,22 +34,7 @@ export default function Dashboard() {
         </div>
 
         {/* FILTER */}
-        <div className="flex justify-self-center sm:justify-self-end gap-2 bg-gray-200 p-1 rounded-lg w-fit">
-          {["day", "week", "month", "year"].map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`px-3 py-1 rounded ${
-                filter === f ? "bg-white shadow transition" : "text-gray-500"
-              }`}
-            >
-              {f === "day" && "Hari"}
-              {f === "week" && "Minggu"}
-              {f === "month" && "Bulan"}
-              {f === "year" && "Tahun"}
-            </button>
-          ))}
-        </div>
+        <FilterByTimeSelect value={timeFilter} onChange={setTimeFilter} />
 
         {/* CARDS */}
         <DashboardCards
