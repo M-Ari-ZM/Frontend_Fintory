@@ -17,7 +17,9 @@ export default function MonthlyChart({ data }) {
       <BarChart data={data}>
         <XAxis dataKey="month" />
 
-        <YAxis tickFormatter={(value) => `Rp ${value}`} />
+        <YAxis
+          tickFormatter={(value) => `Rp ${value.toLocaleString("id-ID")}`}
+        />
 
         <Tooltip
           allowEscapeViewBox={{ x: false, y: false }}
