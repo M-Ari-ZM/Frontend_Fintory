@@ -4,3 +4,12 @@
   --color-main: #15495a;
   --color-second: #1c576b;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

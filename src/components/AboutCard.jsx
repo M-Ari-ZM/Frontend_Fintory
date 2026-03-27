@@ -1,9 +1,9 @@
 export default function AboutCard() {
   return (
-    <div className="bg-main text-white p-10 rounded-md">
+    <div className="bg-main text-white p-10 rounded-md sm:w-[90%] justify-self-center hover:shadow-md hover:-translate-y-1 transition">
       <h1 className="text-2xl font-bold">Fintory</h1>
 
-      <div className="grid sm:grid-cols-2 gap-8 my-5">
+      <div className="grid md:grid-cols-2 gap-8 my-5">
         <p>
           Fintory adalah platform yang membantu pengguna mencatat dan mengelola
           riwayat keuangan secara terstruktur dan mudah dipahami. Dengan

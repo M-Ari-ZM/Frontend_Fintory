@@ -25,7 +25,7 @@ export default function Navbar() {
         <h1 className="text-2xl font-semibold">Fintory</h1>
       </span>
 
-      <nav className="flex gap-4 mt-3 sm:mt-1">
+      <nav className="flex gap-5 mt-3 sm:mt-1">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
