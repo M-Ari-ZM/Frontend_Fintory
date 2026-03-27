@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import WelcomePage from "./pages/Welcome";
 const Home = lazy(() => import("./pages/Home"));
 const Report = lazy(() => import("./pages/Report"));
+const About = lazy(() => import("./pages/About"));
 import Spinner from "./components/ui/Spinner";
 
 function App() {
@@ -22,6 +23,14 @@ function App() {
         element={
           <Suspense fallback={<Spinner />}>
             <Report />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          <Suspense fallback={<Spinner />}>
+            <About />
           </Suspense>
         }
       />
