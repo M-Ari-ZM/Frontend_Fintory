@@ -9,11 +9,11 @@ export default function ActionCard() {
   }
 
   return (
-    <div className="flex flex-wrap mx-auto my-10 rounded-2xl p-10 bg-primary justify-center sm:justify-between w-fit lg:w-[50%] h-fit">
+    <div className="flex flex-wrap mx-auto my-10 rounded-2xl p-10 bg-primary justify-center sm:justify-between w-fit lg:w-[50%] h-fit hover:shadow-md hover:-translate-y-1 transition">
       <h2 className="font-bold text-2xl text-main mr-10">
         Ayo Mulai Perjalanan
         <br />
-        Finansial Anda
+        Finansial Anda!
       </h2>
 
       <button
