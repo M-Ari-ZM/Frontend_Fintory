@@ -77,20 +77,6 @@ npm run preview
 
 ---
 
-## 📁 Struktur Folder (Opsional)
-
-```
-src/
-│── components/
-│── pages/
-│── assets/
-│── utils/
-│── App.jsx
-│── main.jsx
-```
-
----
-
 ## ✨ Fitur Utama
 
 - Pencatatan pemasukan & pengeluaran
