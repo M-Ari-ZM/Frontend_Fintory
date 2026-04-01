@@ -1,12 +1,107 @@
-# React + Vite
+# Fintory 💰📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Deskripsi Singkat Proyek
 
-Currently, two official plugins are available:
+Fintory adalah aplikasi manajemen keuangan berbasis web yang membantu pengguna dalam mencatat, memantau, dan menganalisis pengeluaran serta pemasukan secara sederhana dan intuitif.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikasi ini dibangun menggunakan React dengan dukungan Tailwind CSS untuk tampilan modern dan responsif, serta Vite sebagai build tool untuk performa yang cepat.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Petunjuk Setup Environment
+
+Ikuti langkah-langkah berikut untuk menjalankan project di lokal:
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/username/fintory.git
+cd fintory
+```
+
+### 2. Install Dependencies
+
+Pastikan kamu sudah menginstall:
+
+- Node.js (disarankan versi 18+)
+- npm atau yarn
+
+Lalu jalankan:
+
+```bash
+npm install
+```
+
+### 3. Jalankan Development Server
+
+```bash
+npm run dev
+```
+
+Aplikasi akan berjalan di:
+
+```
+http://localhost:5173
+```
+
+---
+
+## ▶️ Cara Menjalankan Aplikasi
+
+### Mode Development
+
+```bash
+npm run dev
+```
+
+### Build untuk Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- React.js
+- Tailwind CSS
+- Vite
+- (Optional) Chart Library (Recharts / Chart.js)
+
+---
+
+## 📁 Struktur Folder (Opsional)
+
+```
+src/
+│── components/
+│── pages/
+│── assets/
+│── utils/
+│── App.jsx
+│── main.jsx
+```
+
+---
+
+## ✨ Fitur Utama
+
+- Pencatatan pemasukan & pengeluaran
+- Dashboard visual (grafik)
+- Filter berdasarkan waktu (minggu, bulan, tahun)
+- UI responsif dan modern
+
+---
+
+## 📄 Lisensi
+
+Project ini bersifat open-source dan bebas digunakan untuk pembelajaran.
+
+---
