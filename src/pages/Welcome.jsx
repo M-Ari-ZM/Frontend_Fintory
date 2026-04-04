@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div>
       <Helmet>
-        <title>Welcome • Fintory</title>
+        <title>Welcome! • Fintory</title>
       </Helmet>
 
       <Hero />
