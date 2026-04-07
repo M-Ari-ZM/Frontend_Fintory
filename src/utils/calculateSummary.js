@@ -1,13 +1,18 @@
-export function calculateSummary(transactions) {
-  const income = transactions
-    .filter((t) => t.type === "income")
-    .reduce((a, t) => a + t.amount, 0);
+export const calculateSummary = (transactions) => {
+  let income = 0;
+  let expense = 0;
 
-  const expense = transactions
-    .filter((t) => t.type === "expense")
-    .reduce((a, t) => a + t.amount, 0);
+  transactions.forEach((item) => {
+    if (item.type === "income") {
+      income += item.amount;
+    } else {
+      expense += item.amount;
+    }
+  });
 
-  const balance = income - expense;
-
-  return { income, expense, balance };
-}
+  return {
+    income,
+    expense,
+    balance: income - expense,
+  };
+};

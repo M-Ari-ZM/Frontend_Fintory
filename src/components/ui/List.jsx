@@ -13,7 +13,7 @@ export default function List({ transaction, onDelete, onEdit }) {
     >
       <div className="flex justify-between w-full sm:mr-4 sm:pr-3 sm:border-r-2 sm:border-gray-300">
         <div>
-          <p className="text-lg">{transaction.desc}</p>
+          <p className="text-lg">{transaction.description}</p>
           <p className="text-xs text-gray-500">
             {formatDate(transaction.date)}
           </p>

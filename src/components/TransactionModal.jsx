@@ -8,14 +8,14 @@ export default function TransactionModal({
 }) {
   const [type, setType] = useState("income");
   const [amount, setAmount] = useState("");
-  const [desc, setDesc] = useState("");
+  const [description, setDesc] = useState("");
   const [date, setDate] = useState("");
 
   useEffect(() => {
     if (editData) {
       setType(editData.type);
       setAmount(editData.amount);
-      setDesc(editData.desc);
+      setDesc(editData.description);
       setDate(editData.date.slice(0, 10));
     } else {
       setType("");
@@ -38,10 +38,9 @@ export default function TransactionModal({
     e.preventDefault();
 
     const data = {
-      id: editData?.id || Date.now(),
       type,
       amount: Number(amount),
-      desc,
+      description,
       date: date,
     };
     onSubmit(data);
@@ -114,7 +113,7 @@ export default function TransactionModal({
             <label>Deskripsi</label>
             <input
               placeholder="contoh: Kopi, Gaji, Belanja"
-              value={desc}
+              value={description}
               onChange={(e) => setDesc(e.target.value)}
               className="w-full bg-gray-100 border border-gray-300 p-2 px-3 rounded-md"
               required

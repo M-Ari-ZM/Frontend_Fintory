@@ -1,46 +1,59 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import {
+  getTransaksi,
+  addTransaksi,
+  deleteTransaksi,
+  updateTransaksi,
+} from "../services/api";
 
 export default function useTransactions() {
   const [transactions, setTransactions] = useState([]);
-  const setInitialData = (data) => {
-    setTransactions(data);
+
+  // FETCH
+  const fetchTransactions = async () => {
+    try {
+      const res = await getTransaksi();
+      setTransactions(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  useEffect(() => {
-    const data = localStorage.getItem("transactions");
-    if (data) {
-      setTransactions(JSON.parse(data));
+  // ADD
+  const addTransaction = async (data) => {
+    try {
+      await addTransaksi(data);
+      await fetchTransactions(); // sync ulang
+    } catch (err) {
+      console.log(err);
     }
-  }, []);
+  };
 
-  useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  }, [transactions]);
+  // DELETE
+  const deleteTransaction = async (id) => {
+    try {
+      await deleteTransaksi(id);
+      await fetchTransactions();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  function addTransaction(data) {
-    const newTransaction = {
-      id: Date.now(),
-      ...data,
-    };
-
-    setTransactions((prev) => [...prev, newTransaction]);
-  }
-
-  function deleteTransaction(id) {
-    setTransactions((prev) => prev.filter((t) => t.id !== id));
-  }
-
-  function updateTransaction(updated) {
-    setTransactions((prev) =>
-      prev.map((t) => (t.id === updated.id ? updated : t)),
-    );
-  }
+  // UPDATE
+  const updateTransaction = async (data) => {
+    try {
+      await updateTransaksi(data.id, data);
+      await fetchTransactions();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return {
     transactions,
+    fetchTransactions,
     addTransaction,
     deleteTransaction,
     updateTransaction,
-    setInitialData,
   };
 }

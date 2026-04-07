@@ -1,8 +1,8 @@
-export function filterTransactions(transactions, filter) {
+export const filterTransactions = (transactions, filter) => {
   const now = new Date();
 
-  return transactions.filter((t) => {
-    const date = new Date(t.date);
+  return transactions.filter((item) => {
+    const date = new Date(item.date);
 
     if (filter === "day") {
       return date.toDateString() === now.toDateString();
@@ -27,4 +27,4 @@ export function filterTransactions(transactions, filter) {
 
     return true;
   });
-}
+};

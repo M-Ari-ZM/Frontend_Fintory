@@ -2,7 +2,7 @@ export function logicList(data, { search, typeFilter, sortBy }) {
   let result = [...data];
 
   result = result.filter((t) =>
-    t.desc.toLowerCase().includes(search.toLowerCase()),
+    t.description.toLowerCase().includes(search.toLowerCase()),
   );
 
   if (typeFilter !== "all") {
