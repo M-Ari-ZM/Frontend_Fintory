@@ -1,0 +1,47 @@
+import { useNavigate } from "react-router-dom";
+import bgHeader from "../assets/img/bg-header.webp";
+import Fintory from "../assets/img/Fintory(W).webp";
+
+export default function Hero() {
+  const navigate = useNavigate();
+
+  function dashboardBtn() {
+    navigate("/home");
+  }
+
+  return (
+    <section className="relative">
+      <header className="flex items-center gap-1 bg-main text-white px-6 py-4 relative z-10">
+        <img src={Fintory} alt="Fintory" className="w-6 h-full" />
+        <h1 className="text-2xl font-semibold">Fintory</h1>
+      </header>
+
+      {/* Card */}
+      <div className="bg-second text-white text-center pt-20 pb-10 px-6 rounded-b-[40px] shadow-lg relative z-10">
+        <h2 className="text-3xl font-bold mb-5">Selamat Datang di Fintory</h2>
+
+        <h2 className="text-3xl font-bold mb-5">
+          Mencatat dan Memahami Perjalanan Finansial
+        </h2>
+
+        <button
+          className="bg-gray-200 text-gray-800 text-2xl mt-15 px-15 py-2 rounded-full font-semibold hover:bg-gray-300 transition self-end"
+          onClick={dashboardBtn}
+        >
+          Mulai
+        </button>
+      </div>
+
+      {/* Background Image */}
+      <img
+        src={bgHeader}
+        alt="finance"
+        className="w-full min-h-screen object-cover -mt-100"
+      />
+
+      <footer className="p-4 w-full text-white text-center z-10 absolute bottom-0 font-bold">
+        © 2026 | Fintory by CC26-PS063
+      </footer>
+    </section>
+  );
+}
