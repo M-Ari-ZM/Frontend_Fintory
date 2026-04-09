@@ -73,7 +73,7 @@ npm run preview
 - React.js
 - Tailwind CSS
 - Vite
-- (Optional) Chart Library (Recharts / Chart.js)
+- Chart Library (Recharts / Chart.js)
 
 ---
 
