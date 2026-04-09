@@ -1,44 +1,68 @@
 # Fintory 💰📊
 
-## 📌 Deskripsi Singkat Proyek
+## 📌 Deskripsi Proyek
 
-Fintory adalah aplikasi manajemen keuangan berbasis web yang membantu pengguna dalam mencatat, memantau, dan menganalisis pengeluaran serta pemasukan secara sederhana dan intuitif.
+Fintory adalah aplikasi manajemen keuangan berbasis web yang membantu pengguna mencatat pemasukan dan pengeluaran serta memantau kondisi keuangan secara real-time.
 
-Aplikasi ini dibangun menggunakan React dengan dukungan Tailwind CSS untuk tampilan modern dan responsif, serta Vite sebagai build tool untuk performa yang cepat.
+Project ini menggunakan arsitektur **full-stack terpisah (separate repository)**:
+
+- **Frontend**: React + Tailwind CSS + Vite
+- **Backend API**: Node.js + Express + MySQL
 
 ---
 
-## ⚙️ Petunjuk Setup Environment
+## 🔗 Repository Terkait
 
-Ikuti langkah-langkah berikut untuk menjalankan project di lokal:
+- 🎨 Frontend (repo ini):
+  https://github.com/M-Ari-ZM/Frontend_Fintory
+
+- ⚙️ Backend API:
+  https://github.com/FathirAja/Backend_Fintory
+
+> Pastikan backend sudah berjalan sebelum menjalankan frontend.
+
+---
+
+## ✨ Fitur Utama
+
+- Pencatatan pemasukan & pengeluaran
+- Edit & hapus transaksi
+- Dashboard visual (grafik)
+- Filter berdasarkan waktu
+- Data tersimpan di database (MySQL)
+
+---
+
+## ⚙️ Setup Frontend
 
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/M-Ari-ZM/Fintory.git
-cd fintory
+git clone https://github.com/M-Ari-ZM/Frontend_Fintory.git
+cd fintory-frontend
 ```
 
 ### 2. Install Dependencies
-
-Pastikan kamu sudah menginstall:
-
-- Node.js (disarankan versi 18+)
-- npm atau yarn
-
-Lalu jalankan:
 
 ```bash
 npm install
 ```
 
-### 3. Jalankan Development Server
+### 3. Konfigurasi Environment
+
+Buat file `.env`:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+### 4. Jalankan Frontend
 
 ```bash
 npm run dev
 ```
 
-Aplikasi akan berjalan di:
+Frontend akan berjalan di:
 
 ```
 http://localhost:5173
@@ -46,48 +70,75 @@ http://localhost:5173
 
 ---
 
-## ▶️ Cara Menjalankan Aplikasi
+## ⚙️ Setup Backend (Singkat)
 
-### Mode Development
+Backend berada di repository terpisah.
+Silakan ikuti instruksi lengkap di repo backend:
+
+👉 https://github.com/FathirAja/Backend_Fintory
+
+### Ringkasan:
 
 ```bash
-npm run dev
+cd fintory-backend
+npm install
+npm run start
 ```
 
-### Build untuk Production
+Backend berjalan di:
 
-```bash
-npm run build
 ```
-
-### Preview Production Build
-
-```bash
-npm run preview
+http://localhost:5000
 ```
 
 ---
+
+## ▶️ Cara Menjalankan Aplikasi
+
+1. Jalankan backend terlebih dahulu
+2. Jalankan frontend
+3. Buka di browser:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📡 API Endpoint (Backend)
+
+| Method | Endpoint          | Deskripsi   |
+| ------ | ----------------- | ----------- |
+| GET    | /transactions     | Ambil data  |
+| POST   | /transactions     | Tambah data |
+| PUT    | /transactions/:id | Update data |
+| DELETE | /transactions/:id | Hapus data  |
+
+---
+
+## 📁 Struktur Folder (Frontend)
+
+```
+src/
+│── components/
+│── pages/
+│── assets/
+│── utils/
+│── App.jsx
+│── main.jsx
+```
 
 ## 🛠️ Teknologi yang Digunakan
 
 - React.js
 - Tailwind CSS
 - Vite
-- (Optional) Chart Library (Recharts / Chart.js)
-
----
-
-## ✨ Fitur Utama
-
-- Pencatatan pemasukan & pengeluaran
-- Dashboard visual (grafik)
-- Filter berdasarkan waktu (minggu, bulan, tahun)
-- UI responsif dan modern
+- REST API (Backend terpisah)
 
 ---
 
 ## 📄 Lisensi
 
-Project ini bersifat open-source dan bebas digunakan untuk pembelajaran.
+Project ini bersifat open-source dan dapat digunakan untuk pembelajaran.
 
 ---
