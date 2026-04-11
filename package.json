@@ -13,14 +13,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "VITE_DEPLOY_TARGET=gh-pages npm run build && gh-pages -d dist"
+    "deploy": "cross-env VITE_DEPLOY_TARGET=gh-pages npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
     "lucide-react": "^1.7.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.13.1",
     "recharts": "^3.8.0",
     "tailwindcss": "^4.2.1"
