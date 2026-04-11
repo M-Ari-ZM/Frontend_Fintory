@@ -1,7 +1,7 @@
 import List from "./ui/List";
 
 export default function ActivityList({ transactions, onDelete, onEdit }) {
-  const latestTransactions = transactions.slice(-5).reverse();
+  const latestTransactions = transactions.slice(0, 5);
 
   return (
     <div className="bg-white border border-gray-300 rounded-xl p-4 hover:shadow-md hover:-translate-y-1 transition">
